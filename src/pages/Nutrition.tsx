@@ -92,7 +92,7 @@ export default function Nutrition() {
 
         <Row gutter={[32, 32]}>
           <Col xs={24} md={12}>
-            <Card title={text('中医食疗观点')} bordered className="h-full border-orange-100" styles={{ header: { backgroundColor: '#fff7ed' } }}>
+            <Card title={text('中医食疗观点')} variant="outlined" className="h-full border-orange-100" styles={{ header: { backgroundColor: '#fff7ed' } }}>
               <div className="flex items-start gap-4 mb-4">
                 <MedicineBoxOutlined className="text-3xl text-orange-500 mt-1" />
                 <div>
@@ -112,13 +112,13 @@ export default function Nutrition() {
           </Col>
           
           <Col xs={24} md={12}>
-            <Card title={text('现代营养学成分')} bordered className="h-full border-blue-100" styles={{ header: { backgroundColor: '#f0f9ff' } }}>
+            <Card title={text('现代营养学成分')} variant="outlined" className="h-full border-blue-100" styles={{ header: { backgroundColor: '#f0f9ff' } }}>
               <Row gutter={16}>
                 <Col span={12}>
-                  <Statistic title={text('优质蛋白质 (g/100g)')} value={4.5} precision={1} valueStyle={{ color: '#0369a1' }} />
+                  <Statistic title={text('优质蛋白质 (g/100g)')} value={4.5} precision={1} styles={{ content: { color: '#0369a1' } }} />
                 </Col>
                 <Col span={12}>
-                  <Statistic title={text('乳钙 (mg/100g)')} value={120} valueStyle={{ color: '#0369a1' }} />
+                  <Statistic title={text('乳钙 (mg/100g)')} value={120} styles={{ content: { color: '#0369a1' } }} />
                 </Col>
                 <Col span={24} className="mt-4">
                   <Paragraph className="text-gray-600 text-sm">
