@@ -1,1 +1,29 @@
 @import "tailwindcss";
+
+html {
+	background: #f8f9fa;
+}
+
+body {
+	min-width: 320px;
+	margin: 0;
+	background: #f8f9fa;
+	color: #111827;
+}
+
+#root {
+	min-height: 100vh;
+}
+
+.ant-menu-horizontal {
+	line-height: 44px;
+}
+
+.ant-menu-horizontal > .ant-menu-item::after {
+	inset-inline: 10px;
+}
+
+.ant-typography a,
+a {
+	text-decoration: none;
+}

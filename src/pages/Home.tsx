@@ -1,90 +1,189 @@
-import { Typography, Divider, Card, Tag, Table } from 'antd';
-import { InfoCircleOutlined, EnvironmentOutlined, HistoryOutlined } from '@ant-design/icons';
+import { Card, Divider, Table, Tag, Typography } from 'antd';
+import {
+  EnvironmentOutlined,
+  HistoryOutlined,
+  InfoCircleOutlined,
+  LinkOutlined,
+  PictureOutlined,
+  ProfileOutlined,
+} from '@ant-design/icons';
+import { useLanguage } from '../language';
 
-const { Title, Paragraph, Text } = Typography;
+const { Paragraph, Text, Title } = Typography;
+
+const images = {
+  hero: 'https://commons.wikimedia.org/wiki/Special:FilePath/Ginger_Milk_Pudding.jpg?width=1400',
+  shop: 'https://commons.wikimedia.org/wiki/Special:FilePath/GD_%E5%BB%A3%E6%9D%B1_Guangdong_%E5%BB%A3%E5%B7%9E_Guangzhou_%E7%9F%B3%E5%9F%BA%E6%9D%91_Shijicun_%E5%9F%8E%E4%B8%AD%E6%9D%91_village_tourism_shop_%E5%A5%B6%E5%A8%91%E8%96%91%E6%92%9E%E5%A5%B6_%E9%9B%99%E7%9A%AE%E5%A5%B6_Milk_January_2024_R12S_11.jpg?width=900',
+  bowl: 'https://commons.wikimedia.org/wiki/Special:FilePath/GD_%E5%BB%A3%E6%9D%B1_ZS_%E4%B8%AD%E5%B1%B1%E5%B8%82_Zhongshan_%E7%9F%B3%E5%B2%90_ShiQi_District_%E5%AD%AB%E6%96%87%E8%A5%BF%E8%B7%AF%E6%AD%A5%E8%A1%8C%E5%8D%80_SunWen_West_Road_Pedestrian_Zone_shop_%E5%8A%89%E8%A8%98_Liu_Kee_sweet_%E8%96%91%E6%92%9E%E5%A5%B6_Ginger_Milk_Pudding_February_2025_R12S_01.jpg?width=900',
+};
 
 export default function Home() {
+  const { text } = useLanguage();
+
   const dataSource = [
-    { key: '1', label: '中文名', value: '姜汁撞奶' },
-    { key: '2', label: '外文名', value: 'Ginger milk curd / Ginger-juice milk' },
-    { key: '3', label: '分类', value: '甜品、小吃' },
-    { key: '4', label: '发源地', value: '广东省广州市番禺区沙湾镇' },
-    { key: '5', label: '主要食材', value: '姜汁，水牛奶，白糖' },
-    { key: '6', label: '口味', value: '香甜爽滑，微辛' },
+    { key: '1', label: text('中文名'), value: text('姜汁撞奶') },
+    { key: '2', label: text('繁体字'), value: '薑汁撞奶' },
+    { key: '3', label: text('外文名'), value: 'Ginger milk curd / Ginger milk pudding' },
+    { key: '4', label: text('分类'), value: text('中式甜点、糕点、小吃') },
+    { key: '5', label: text('起源地'), value: text('中国广东广州') },
+    { key: '6', label: text('主要食材'), value: text('生姜、牛奶、糖') },
+    { key: '7', label: text('相关条目'), value: text('双皮奶、广府甜品、顺德小吃') },
   ];
 
   const columns = [
-    { dataIndex: 'label', key: 'label', className: 'font-semibold text-gray-500 bg-gray-50', width: '35%' },
-    { dataIndex: 'value', key: 'value', className: 'text-gray-900' },
+    { dataIndex: 'label', key: 'label', className: 'w-[36%] bg-slate-50 !font-semibold !text-slate-600' },
+    { dataIndex: 'value', key: 'value', className: '!text-slate-900' },
+  ];
+
+  const gallery = [
+    { src: images.hero, title: text('姜汁撞奶成品'), source: 'Wikimedia Commons' },
+    { src: images.shop, title: text('广州甜品店出品'), source: 'Wikimedia Commons' },
+    { src: images.bowl, title: text('传统碗装姜撞奶'), source: 'Wikimedia Commons' },
   ];
 
   return (
-    <div className="flex flex-col md:flex-row gap-8">
-      {/* 左侧主要内容区 */}
-      <div className="flex-1 bg-white p-8 rounded-lg shadow-sm border border-gray-100">
-        <Typography>
-          <Title className="!text-4xl text-gray-900 !mb-8 font-serif">姜汁撞奶</Title>
-          <Paragraph className="text-lg leading-relaxed text-gray-700">
-            <Text strong className="text-amber-800 text-xl">姜汁撞奶</Text>
-            是一种源于中国广东省广州市番禺区沙湾镇的传统中式甜点。它以姜汁和牛奶为主要原料，利用生姜汁中的蛋白酶与牛奶中的蛋白质在中温下发生凝固反应制作而成。口感滑嫩，风味独特，既有姜的辛辣，又有奶的香甜。
-          </Paragraph>
-
-          <div className="flex items-center gap-2 text-2xl font-serif text-gray-800 mt-8 mb-4">
-            <HistoryOutlined className="text-amber-600" />
-            历史渊源
-          </div>
-          <Divider className="!border-gray-200 !my-4" />
-          <Paragraph className="text-base leading-relaxed text-gray-700">
-            传说在清朝光绪年间，广州番禺沙湾镇有一位老婆婆患了风寒，咳嗽不止。虽知姜汁可驱寒，但姜汁太辣无法直接饮用。她的媳妇于是将水牛奶加热放入糖，然后倒入装有姜汁的碗中。不久后，神奇的事情发生了，牛奶凝结成了半固体，不仅改善了姜的辣味，还变得入口即化、香甜滑嫩。老婆婆吃后顿觉心身温暖，咳嗽也有所缓解。自此，姜汁撞奶这一美味便在沙湾流传开来。
-          </Paragraph>
-
-          <div className="flex items-center gap-2 text-2xl font-serif text-gray-800 mt-8 mb-4">
-            <EnvironmentOutlined className="text-amber-600" />
-            地理分布
-          </div>
-          <Divider className="!border-gray-200 !my-4" />
-          <Paragraph className="text-base leading-relaxed text-gray-700">
-            姜汁撞奶主要流行于广东珠三角地区，特别是广州市番禺区沙湾镇、顺德等地。在香港、澳门等地的甜品店或茶餐厅也十分常见，是广式糖水文化中不可或缺的经典之作。如今，随着粤菜在世界各地的传播，诸多海外华人社区也可品尝到这道传统甜品。
-          </Paragraph>
-        </Typography>
-      </div>
-
-      {/* 右侧信息侧边栏 (Infobox) */}
-      <div className="w-full md:w-80 flex-shrink-0">
-        <Card 
-          className="shadow-sm border-gray-200 sticky top-24"
-          styles={{ header: { backgroundColor: '#fdf6e3' }, body: { padding: 0 } }}
-          title={<span className="text-lg font-bold text-amber-900">百科名片</span>}
-          extra={<InfoCircleOutlined className="text-amber-600" />}
-        >
-          <div className="p-4 bg-white border-b border-gray-100 text-center">
-            {/* 用CSS占位图或者网图 */}
-            <img 
-              src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Ginger_milk_curd.jpg/800px-Ginger_milk_curd.jpg" 
-              alt="姜汁撞奶" 
-              className="max-w-full h-auto rounded-md shadow-sm border border-gray-100 mx-auto"
-              onError={(e) => { e.currentTarget.src = 'https://via.placeholder.com/400x300?text=Image+Not+Found' }}
+    <div className="grid gap-7 lg:grid-cols-[minmax(0,1fr)_360px]">
+      <main className="min-w-0">
+        <section className="overflow-hidden rounded border border-slate-200 bg-white shadow-sm">
+          <div className="relative h-[260px] bg-slate-100 md:h-[340px]">
+            <img
+              src={images.hero}
+              alt={text('姜汁撞奶')}
+              className="h-full w-full object-cover"
+              referrerPolicy="no-referrer"
             />
-            <div className="text-sm text-gray-500 mt-2">传统手工姜汁撞奶</div>
+            <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-950/80 to-transparent px-6 pb-6 pt-20 text-white">
+              <Title className="!mb-2 !text-4xl !font-semibold !text-white md:!text-5xl">{text('姜汁撞奶')}</Title>
+              <Paragraph className="!mb-0 max-w-3xl !text-base !leading-7 !text-slate-100">
+                {text('以姜汁凝固加糖调味牛奶而制的广东传统甜品，常见于广州、顺德、香港和澳门的甜品店。')}
+              </Paragraph>
+            </div>
           </div>
-          <Table 
-            dataSource={dataSource} 
-            columns={columns} 
+          <div className="border-t border-slate-200 bg-white px-6 py-4">
+            <div className="flex flex-wrap items-center gap-2">
+              <Tag color="blue">{text('维基百科风格')}</Tag>
+              <Tag color="cyan">{text('广府甜品')}</Tag>
+              <Tag color="gold">{text('饮食文化')}</Tag>
+              <a
+                href="https://zh.wikipedia.org/wiki/%E8%96%91%E6%B1%81%E6%92%9E%E5%A5%B6"
+                target="_blank"
+                rel="noreferrer"
+                className="ml-auto inline-flex items-center gap-1 text-sm text-sky-700"
+              >
+                <LinkOutlined />
+                {text('维基百科资料来源')}
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <section className="mt-7 rounded border border-slate-200 bg-white px-7 py-8 shadow-sm">
+          <Typography>
+            <Title level={2} className="!mb-2 !text-3xl !font-semibold !text-slate-950">
+              {text('概述')}
+            </Title>
+            <div className="mb-6 h-px bg-slate-200" />
+            <Paragraph className="text-[16px] leading-8 text-slate-800">
+              <Text strong>{text('姜汁撞奶')}</Text>
+              {text('是一种中式甜品，以姜汁凝固加糖调味的牛奶而制。制作姜汁撞奶使用的牛奶以水牛奶为佳，生姜中的凝乳酶与牛奶蛋白质反应后，形成细腻、柔嫩、可用勺子轻轻托起的凝胶结构。')}
+            </Paragraph>
+            <Paragraph className="text-[16px] leading-8 text-slate-800">
+              {text('主流百科网站通常将它列为中国甜食、粤菜和顺德小吃相关条目。它的看点不仅在风味，也在制作过程中的温度控制：牛奶太热会破坏酶活性，太冷则不易凝固。')}
+            </Paragraph>
+
+            <div className="mt-8 flex items-center gap-2 border-b border-slate-200 pb-3">
+              <HistoryOutlined className="text-xl text-sky-700" />
+              <Title level={3} className="!mb-0 !text-2xl !font-medium !text-slate-900">{text('历史渊源')}</Title>
+            </div>
+            <Paragraph className="mt-4 text-[16px] leading-8 text-slate-800">
+              {text('民间说法认为，姜汁撞奶起源于广东珠三角一带，尤其常与广州番禺沙湾、顺德等地的传统奶制甜品文化联系在一起。它从家庭式甜品逐步进入糖水铺和茶餐厅，成为广府饮食文化中识别度很高的一道甜品。')}
+            </Paragraph>
+
+            <div className="mt-8 flex items-center gap-2 border-b border-slate-200 pb-3">
+              <EnvironmentOutlined className="text-xl text-sky-700" />
+              <Title level={3} className="!mb-0 !text-2xl !font-medium !text-slate-900">{text('地理分布')}</Title>
+            </div>
+            <Paragraph className="mt-4 text-[16px] leading-8 text-slate-800">
+              {text('姜汁撞奶主要流行于广东、香港、澳门等粤语地区。随着粤菜和糖水店文化传播，它也常见于海外华人社区的广式甜品店。')}
+            </Paragraph>
+          </Typography>
+        </section>
+
+        <section className="mt-7 rounded border border-slate-200 bg-white px-7 py-8 shadow-sm">
+          <div className="mb-5 flex items-center gap-2 border-b border-slate-200 pb-3">
+            <PictureOutlined className="text-xl text-sky-700" />
+            <Title level={3} className="!mb-0 !text-2xl !font-medium !text-slate-900">{text('相关图像')}</Title>
+          </div>
+          <div className="grid gap-4 md:grid-cols-3">
+            {gallery.map((item) => (
+              <Card
+                key={item.src}
+                className="overflow-hidden border-slate-200"
+                cover={
+                  <img
+                    src={item.src}
+                    alt={item.title}
+                    className="h-44 w-full object-cover"
+                    referrerPolicy="no-referrer"
+                  />
+                }
+                size="small"
+              >
+                <Text strong className="block !text-slate-900">{item.title}</Text>
+                <Text className="!text-xs !text-slate-500">{text('图像来源')}: {item.source}</Text>
+              </Card>
+            ))}
+          </div>
+        </section>
+      </main>
+
+      <aside className="min-w-0">
+        <Card
+          className="sticky top-36 border-slate-200 shadow-sm"
+          styles={{ header: { backgroundColor: '#f8fafc' }, body: { padding: 0 } }}
+          title={<span className="inline-flex items-center gap-2 font-semibold text-slate-900"><InfoCircleOutlined />{text('百科名片')}</span>}
+        >
+          <div className="border-b border-slate-200 bg-white p-4 text-center">
+            <img
+              src={images.bowl}
+              alt={text('姜汁撞奶')}
+              className="mx-auto aspect-[4/3] w-full rounded object-cover"
+              referrerPolicy="no-referrer"
+            />
+            <Text className="mt-2 block !text-sm !text-slate-500">{text('传统手工姜汁撞奶')}</Text>
+          </div>
+          <Table
+            dataSource={dataSource}
+            columns={columns}
             pagination={false}
             showHeader={false}
             size="small"
             bordered
             className="[&_.ant-table-cell]:!px-4 [&_.ant-table-cell]:!py-3"
           />
-          <div className="p-4 bg-gray-50">
-            <div className="flex flex-wrap gap-2">
-              <Tag color="orange">传统甜品</Tag>
-              <Tag color="gold">广府美食</Tag>
-              <Tag color="red">驱寒暖胃</Tag>
+          <div className="bg-slate-50 p-4">
+            <div className="mb-3 flex items-center gap-2 text-sm font-semibold text-slate-700">
+              <ProfileOutlined />
+              {text('资料来源')}
             </div>
+            <div className="flex flex-wrap gap-2">
+              <Tag color="blue">{text('维基百科')}</Tag>
+              <Tag color="cyan">{text('维基共享资源')}</Tag>
+              <Tag color="gold">{text('广府甜品')}</Tag>
+            </div>
+            <Divider className="!my-4" />
+            <a
+              href="https://commons.wikimedia.org/wiki/Category:Ginger_milk_curd"
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-1 text-sm text-sky-700"
+            >
+              <LinkOutlined />
+              {text('查看维基共享资源图册')}
+            </a>
           </div>
         </Card>
-      </div>
+      </aside>
     </div>
   );
 }
