@@ -82,7 +82,7 @@ function AppShell() {
         <div className="flex flex-col items-center justify-center gap-1 text-sm">
           <Text className="!text-slate-600">{text('饮食文化专题 · 自由的百科全书风格静态页面')}</Text>
           <Text className="!text-xs !text-slate-500">
-            {text('姜汁撞奶百科')} ©{new Date().getFullYear()} React 19 · Vite 8 · Ant Design 6
+             ©{new Date().getFullYear()}{text('姜汁撞奶百科')}
           </Text>
         </div>
       </Footer>

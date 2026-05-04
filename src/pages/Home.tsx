@@ -61,7 +61,6 @@ export default function Home() {
           </div>
           <div className="border-t border-slate-200 bg-white px-6 py-4">
             <div className="flex flex-wrap items-center gap-2">
-              <Tag color="blue">{text('维基百科风格')}</Tag>
               <Tag color="cyan">{text('广府甜品')}</Tag>
               <Tag color="gold">{text('饮食文化')}</Tag>
               <a
@@ -167,7 +166,6 @@ export default function Home() {
               {text('资料来源')}
             </div>
             <div className="flex flex-wrap gap-2">
-              <Tag color="blue">{text('维基百科')}</Tag>
               <Tag color="cyan">{text('维基共享资源')}</Tag>
               <Tag color="gold">{text('广府甜品')}</Tag>
             </div>
