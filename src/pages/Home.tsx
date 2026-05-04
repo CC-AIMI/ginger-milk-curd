@@ -29,22 +29,20 @@ export default function Home() {
             是一种源于中国广东省广州市番禺区沙湾镇的传统中式甜点。它以姜汁和牛奶为主要原料，利用生姜汁中的蛋白酶与牛奶中的蛋白质在中温下发生凝固反应制作而成。口感滑嫩，风味独特，既有姜的辛辣，又有奶的香甜。
           </Paragraph>
 
-          <Divider orientation="left" className="!border-gray-300">
-            <span className="flex items-center gap-2 text-2xl font-serif text-gray-800">
-              <HistoryOutlined className="text-amber-600" />
-              历史渊源
-            </span>
-          </Divider>
+          <div className="flex items-center gap-2 text-2xl font-serif text-gray-800 mt-8 mb-4">
+            <HistoryOutlined className="text-amber-600" />
+            历史渊源
+          </div>
+          <Divider className="!border-gray-200 !my-4" />
           <Paragraph className="text-base leading-relaxed text-gray-700">
             传说在清朝光绪年间，广州番禺沙湾镇有一位老婆婆患了风寒，咳嗽不止。虽知姜汁可驱寒，但姜汁太辣无法直接饮用。她的媳妇于是将水牛奶加热放入糖，然后倒入装有姜汁的碗中。不久后，神奇的事情发生了，牛奶凝结成了半固体，不仅改善了姜的辣味，还变得入口即化、香甜滑嫩。老婆婆吃后顿觉心身温暖，咳嗽也有所缓解。自此，姜汁撞奶这一美味便在沙湾流传开来。
           </Paragraph>
 
-          <Divider orientation="left" className="!border-gray-300">
-            <span className="flex items-center gap-2 text-2xl font-serif text-gray-800">
-              <EnvironmentOutlined className="text-amber-600" />
-              地理分布
-            </span>
-          </Divider>
+          <div className="flex items-center gap-2 text-2xl font-serif text-gray-800 mt-8 mb-4">
+            <EnvironmentOutlined className="text-amber-600" />
+            地理分布
+          </div>
+          <Divider className="!border-gray-200 !my-4" />
           <Paragraph className="text-base leading-relaxed text-gray-700">
             姜汁撞奶主要流行于广东珠三角地区，特别是广州市番禺区沙湾镇、顺德等地。在香港、澳门等地的甜品店或茶餐厅也十分常见，是广式糖水文化中不可或缺的经典之作。如今，随着粤菜在世界各地的传播，诸多海外华人社区也可品尝到这道传统甜品。
           </Paragraph>
