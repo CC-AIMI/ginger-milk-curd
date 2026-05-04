@@ -15,12 +15,22 @@ body {
 	min-height: 100vh;
 }
 
-.ant-menu-horizontal {
-	line-height: 44px;
+.site-nav-menu.ant-menu-horizontal {
+	flex: 0 1 auto;
+	line-height: 40px;
+	border-bottom: 0 !important;
 }
 
-.ant-menu-horizontal > .ant-menu-item::after {
-	inset-inline: 10px;
+.site-nav-menu.ant-menu-horizontal > .ant-menu-item {
+	display: inline-flex;
+	align-items: center;
+	height: 40px;
+	padding-inline: 14px;
+}
+
+.site-nav-menu.ant-menu-horizontal > .ant-menu-item::after {
+	inset-inline: 14px;
+	bottom: 0;
 }
 
 .ant-typography a,

@@ -137,9 +137,9 @@ export default function Home() {
         </section>
       </main>
 
-      <aside className="min-w-0">
+      <aside className="min-w-0 self-start">
         <Card
-          className="sticky top-36 border-slate-200 shadow-sm"
+          className="border-slate-200 shadow-sm"
           styles={{ header: { backgroundColor: '#f8fafc' }, body: { padding: 0 } }}
           title={<span className="inline-flex items-center gap-2 font-semibold text-slate-900"><InfoCircleOutlined />{text('百科名片')}</span>}
         >

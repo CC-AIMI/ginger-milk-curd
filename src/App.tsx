@@ -24,7 +24,7 @@ function NavigationMenu() {
     <Menu
       mode="horizontal"
       selectedKeys={[selectedKey]}
-      className="min-w-0 flex-1 border-none bg-transparent text-[15px] font-medium"
+      className="site-nav-menu min-w-0 border-none bg-transparent text-[15px] font-medium"
       items={[
         { key: 'home', icon: <HomeOutlined />, label: <Link to="/">{text('百科概述')}</Link> },
         { key: 'recipe', icon: <BookOutlined />, label: <Link to="/recipe">{text('制作工艺')}</Link> },
@@ -39,8 +39,11 @@ function AppShell() {
 
   return (
     <Layout className="min-h-screen bg-[#f8f9fa]">
-      <Header className="sticky top-0 z-20 h-auto border-b border-slate-200 bg-white px-0 leading-normal shadow-[0_4px_18px_rgba(15,23,42,0.08)]">
-        <div className="mx-auto flex max-w-7xl flex-col gap-3 px-5 py-3 lg:flex-row lg:items-center lg:gap-7">
+      <Header
+        className="sticky top-0 z-20 h-auto border-b border-slate-200 !bg-white px-0 leading-normal shadow-[0_4px_18px_rgba(15,23,42,0.10)]"
+        style={{ background: '#ffffff' }}
+      >
+        <div className="mx-auto flex min-h-16 max-w-7xl flex-col gap-3 bg-white px-5 py-3 sm:flex-row sm:items-center sm:gap-5 lg:gap-7">
           <Link to="/" className="flex shrink-0 items-center gap-3 text-slate-950 no-underline">
             <div className="flex h-10 w-10 items-center justify-center rounded-md border border-sky-100 bg-sky-50 text-xl text-sky-700 shadow-sm">
               <CoffeeOutlined />
@@ -52,7 +55,7 @@ function AppShell() {
             </div>
           </Link>
           <NavigationMenu />
-          <div className="flex shrink-0 items-center gap-2 self-start lg:self-auto">
+          <div className="flex shrink-0 items-center gap-2 self-start sm:self-auto sm:ml-auto lg:ml-0">
             <TranslationOutlined className="text-slate-500" />
             <Segmented
               size="small"
